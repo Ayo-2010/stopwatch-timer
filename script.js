@@ -203,10 +203,13 @@ tmStart.addEventListener('click', startTimer);
 tmReset.addEventListener('click', resetTimer);
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === ' ' && document.getElementById('stopwatchPanel').classList.contains('active') && e.target.tagName !== 'INPUT') {
+  const tag = e.target.tagName;
+  if (tag === 'INPUT' || tag === 'BUTTON' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+  if (e.key === ' ' && document.getElementById('stopwatchPanel').classList.contains('active')) {
     e.preventDefault();
     startStopwatch();
   }
 });
 
 resetTimer();
+resetStopwatch();
