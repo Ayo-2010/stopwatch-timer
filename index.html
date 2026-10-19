@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chrono — Stopwatch & Timer</title>
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app">
+  <div class="tabs">
+    <button class="tab is-active" data-tab="stopwatch">Stopwatch</button>
+    <button class="tab" data-tab="timer">Timer</button>
+  </div>
+
+  <section class="panel active" id="stopwatchPanel">
+    <div class="display">
+      <span class="time" id="swDisplay">00:00.00</span>
+    </div>
+
+    <div class="controls">
+      <button class="btn start" id="swStart">Start</button>
+      <button class="btn" id="swLap" disabled>Lap</button>
+      <button class="btn" id="swReset" disabled>Reset</button>
+    </div>
+
+    <div class="laps">
+      <div class="laps-head">
+        <span>Lap</span><span>Split</span><span>Total</span>
+      </div>
+      <ul class="lap-list" id="lapList"></ul>
+      <p class="laps-empty" id="lapsEmpty">No laps recorded yet.</p>
+    </div>
+  </section>
+
+  <section class="panel" id="timerPanel">
+    <div class="ring-wrap">
+      <div class="ring" id="ring">
+        <div class="ring-inner">
+          <span class="ring-time" id="tmDisplay">05:00</span>
+          <span class="ring-label" id="tmLabel">Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="presets">
+      <button data-seconds="60">1 min</button>
+      <button data-seconds="300">5 min</button>
+      <button data-seconds="600">10 min</button>
+      <button data-seconds="1500">25 min</button>
+    </div>
+
+    <div class="setter" id="setter">
+      <label>Minutes <input type="number" id="setMin" min="0" max="99" value="5"></label>
+      <label>Seconds <input type="number" id="setSec" min="0" max="59" value="0"></label>
+    </div>
+
+    <div class="controls">
+      <button class="btn start" id="tmStart">Start</button>
+      <button class="btn" id="tmReset">Reset</button>
+    </div>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
